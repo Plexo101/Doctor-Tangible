@@ -64,6 +64,12 @@
         "import/default": "off",
         // This rule is already covered by the TypeScript compiler.
         "import/no-unresolved": "off",
+        "no-unused-vars": "off",
+        "no-multiple-empty-lines": "off",
+        "react/prefer-stateless-function":"off",
+        "@typescript-eslint/explicit-module-boundary-types": ["off"],
+        "@typescript-eslint/no-unused-vars": ["off"],
+        "import/extensions": ["never"],
         "linebreak-style": ["error", "windows"],
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": "warn",
