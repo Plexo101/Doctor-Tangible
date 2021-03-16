@@ -1,18 +1,30 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+.vscode/
+dist/
+node_modules/
+out/
 
-# Other files and folders
-.settings/
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# Yarn Integrity file
+.yarn-integrity
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Windows thumbnail cache files
+Thumbs.db
+
+# OS X files
+.DS_Store
+._*
