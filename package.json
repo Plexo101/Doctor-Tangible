@@ -4,7 +4,8 @@
   "description": "Pre-configured boilerplate for Electron + React + TypeScript",
   "main": "./dist/main.bundle.js",
   "scripts": {
-    "start": "electron ./dist/main.bundle.js",
+    "s": "rimraf dist && cross-env NODE_ENV=production webpack --progress --color && electron ./dist/main.bundle.js",
+    "start": "rimraf dist && cross-env NODE_ENV=production webpack --progress --color && electron ./dist/main.bundle.js",
     "dev": "rimraf dist && cross-env NODE_ENV=development webpack --watch --progress --color",
     "prod": "rimraf dist && cross-env NODE_ENV=production webpack --progress --color",
     "test": "mocha -r ts-node/register -r tsconfig-paths/register \"test/**/*.ts\"",
