@@ -7,17 +7,24 @@ import '_public/style.css';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+import TestSpell from '../react/TestSpell'
 import App from '../react/App'
 import Header from '../react/Header'
 
 /* Load the Header HTML with React*/
 ReactDOM.render(
   <Header />,
-  document.getElementById('app'),
+  document.getElementById('header'),
+);
+
+ReactDOM.render(
+  <TestSpell name="foo"/>,
+  document.getElementById("main"),
 );
 
 /* Window button functionality (minmize, maximize, restore and close buttons)*/
 import { remote } from 'electron';
+import { Test } from 'mocha';
 const win = remote.getCurrentWindow();
 
   // When document has loaded, initialise
