@@ -1,12 +1,37 @@
-* {margin: 0; padding: 0; border: 0; vertical-align: baseline;}
-html {box-sizing: border-box;}
-*, *:before, *:after {box-sizing: inherit;}
-html, body {height: 100%; margin: 0;}
+/* General */
+* {
+  font-family: "Nunito", sans-serif;
+  color: #FFF;
+  margin: 0; 
+  padding: 0; 
+  border: 0; 
+  vertical-align: baseline;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: 
+  inherit;
+}
+
+html, body {
+  height: 100%; 
+  margin: 0;
+}
+
+/* Nunito Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+/**/
+
+
 
 body {
-  font-family: "Nunito", sans-serif;
   background: #13181B;
-  color: #FFF;
   border: 1px solid #13181B;
   overflow-y: hidden;
 }
