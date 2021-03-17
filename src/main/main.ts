@@ -15,8 +15,11 @@ function createWindow(): void {
     width: 800,
     webPreferences: {
       webSecurity: false,
-      devTools: process.env.NODE_ENV !== 'production',
+      devTools: true,
+      nodeIntegration: true,
+      enableRemoteModule: true
     },
+    frame: false
   });
 
   // and load the index.html of the app.
@@ -27,6 +30,8 @@ function createWindow(): void {
       slashes: true,
     }),
   ).finally(() => { /* no action */ });
+
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {

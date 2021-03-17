@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
+    "lib": ["dom", "esnext"],
     "baseUrl": ".",
     "paths": {
       "_/*": ["src/*"],
@@ -9,9 +10,11 @@
       "_main/*": ["src/main/*"],
       "_models/*": ["src/models/*"],
       "_renderer/*": ["src/renderer/*"],
-      "_utils/*": ["src/utils/*"]
+      "_utils/*": ["src/utils/*"],
+      "_assets/*": ["assets/*"]
     },
-    "module": "commonjs",
+    "module": "esnext",
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noImplicitThis": true,
