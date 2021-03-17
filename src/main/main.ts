@@ -13,6 +13,8 @@ function createWindow(): void {
   mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
+    minHeight: 300,
+    minWidth: 400,
     webPreferences: {
       webSecurity: false,
       devTools: true,
@@ -30,8 +32,6 @@ function createWindow(): void {
       slashes: true,
     }),
   ).finally(() => { /* no action */ });
-
-  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
