@@ -11,16 +11,22 @@ import TestSpell from '../react/TestSpell'
 import App from '../react/App'
 import Header from '../react/Header'
 
+import * as data from '../../data/spells/spells-phb.json'
+
 /* Load the Header HTML with React*/
 ReactDOM.render(
   <Header />,
   document.getElementById('header'),
 );
 
-ReactDOM.render(
-  <TestSpell name="foo"/>,
-  document.getElementById("main"),
-);
+/* Number Input */
+export function updateSpell(number: number, max: number) {
+  ReactDOM.render(
+    <TestSpell index={number} max={max}/>,
+    document.getElementById("spell"),
+  );
+  
+}
 
 /* Window button functionality (minmize, maximize, restore and close buttons)*/
 import { remote } from 'electron';
@@ -31,6 +37,9 @@ const win = remote.getCurrentWindow();
 document.onreadystatechange = (event) => {
   if (document.readyState == "complete") {
       handleWindowControls();
+      document.getElementById('testInput')!.addEventListener("change", event => {
+        updateSpell(parseInt((document.getElementById('testInput') as HTMLInputElement).value), Object.keys(data.spell).length)
+    });
   }
 };
 

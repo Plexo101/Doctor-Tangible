@@ -50,7 +50,6 @@ const commonConfig = {
   },
 };
 // #endregion
-
 const mainConfig = lodash.cloneDeep(commonConfig);
 mainConfig.entry = './src/main/main.ts';
 mainConfig.target = 'electron-main';
