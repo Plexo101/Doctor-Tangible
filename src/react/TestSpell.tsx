@@ -116,8 +116,6 @@ function TestSpell(props: Props) {
         number = 0
     }
 
-    console.log("Clamp completed")
-
     let currentSpell : Spell = JSON.parse(JSON.stringify(data.spell[number]))
 
     /* Spell level */
@@ -126,8 +124,6 @@ function TestSpell(props: Props) {
     if (currentSpell.level == 0){
         spell = school + " cantrip."
     }
-
-    console.log("Spell type completed")
 
     /* Casting time */
     let time = "";
@@ -139,7 +135,6 @@ function TestSpell(props: Props) {
         }
     }
 
-    console.log("Spell time completed")
 
     /* Components */
     let components = ""
@@ -175,17 +170,14 @@ function TestSpell(props: Props) {
         first += 1;
     }
 
-    console.log("Spell components completed")
 
     /* Duration */
     let duration = ""
     for (let i = 0; i < currentSpell.duration.length; i++) {
         if (i == 0){
-            console.log(currentSpell.duration[i])
             if (currentSpell.duration[i].type = "instant"){
                 duration += "Instantaneous"
             } else if (currentSpell.duration[i].type = "timed") {
-                console.log(currentSpell.duration[i])
                 for (let index = 0; index < currentSpell.duration.length; index++) {
                     if (index != 0) {
                         duration += " or " + currentSpell.duration[index].duration.amount
@@ -213,7 +205,6 @@ function TestSpell(props: Props) {
         }
     }
 
-    console.log("Spell duration completed")
 
     let description = ""
     let higherLevel = ""
@@ -232,7 +223,6 @@ function TestSpell(props: Props) {
         higherLevel += currentSpell.entriesHigherLevel![0].entries[index]
     }
 
-    console.log("Search for damages")
     //Search for any type of damage   eg:  {@damage 1d6} or {@damage 2d8}
 
     function retreiveDamageFromString(string : string, startIntex : number) {
@@ -286,8 +276,6 @@ function TestSpell(props: Props) {
         higherLevel = higherLevel.replaceAll("{"+damagesRAWHigherLevel[index]+"}", damagesHigherLevel[index])
     }
     
-    console.log("Spell description completed")
-
 
     return (
         <table id="test-spell">
