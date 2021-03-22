@@ -1,9 +1,9 @@
 /* General */
 * {
   font-family: "Nunito", sans-serif;
-  margin: 0; 
-  padding: 0; 
-  border: 0; 
+  margin: 0;
+  padding: 0;
+  border: 0;
   color: #fff;
   vertical-align: baseline;
 }
@@ -12,13 +12,16 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  box-sizing: 
-  inherit;
+*,
+*:before,
+*:after {
+  box-sizing:
+    inherit;
 }
 
-html, body {
-  height: 100%; 
+html,
+body {
+  height: 100%;
   margin: 0;
 }
 
@@ -33,18 +36,15 @@ html, body {
   white-space: pre-wrap;
 }
 
-#spell {
-  overflow: hidden;
-}
+
 
 #testInput {
   color: #000;
 }
 
 body {
-  background: #13181B;
-  border: 1px solid #13181B;
-  overflow-y: hidden;
+  background: #181818;
+  border: 1px solid #181818;
 }
 
 #header {
@@ -53,16 +53,16 @@ body {
   position: fixed;
   height: 32px;
   width: 100%;
-  background-color: #1A2023;
+  background-color: #222222;
   box-shadow: 0px 3px 6px #0000002a;
 }
 
 #main {
-  width: 100%;
   margin-top: 32px;
   height: calc(100% - 32px);
-  display:block;
+  display: block;
   padding: 20px;
+  overflow: auto;
 }
 
 #titlebar {
@@ -80,8 +80,8 @@ body {
   height: 100%;
   -webkit-app-region: drag;
   display: grid;
-  grid-template-columns:min-content;
-  
+  grid-template-columns: min-content;
+
 }
 
 #window-title {
@@ -102,18 +102,18 @@ body {
 }
 
 #atlas-logo {
-    margin-right: 10px;
-    height: 32px;
-    width: 32px;
-    background-color: #EB2828;
-    align-content: center;
-    justify-content: center;
+  margin-right: 10px;
+  height: 32px;
+  width: 32px;
+  background-color: #EB2828;
+  align-content: center;
+  justify-content: center;
 }
 
 #atlas-logo .icon {
-    width: 24px;
-    height: 24px;
-    margin: 4px;
+  width: 24px;
+  height: 24px;
+  margin: 4px;
 }
 
 #window-controls {
@@ -137,8 +137,8 @@ body {
 }
 
 #window-controls .icon {
-    width: 12px;
-    height: 12px;
+  width: 12px;
+  height: 12px;
 }
 
 /**/
@@ -170,9 +170,12 @@ body {
 #min-button {
   grid-column: 1;
 }
-#max-button, #restore-button {
+
+#max-button,
+#restore-button {
   grid-column: 2;
 }
+
 #close-button {
   grid-column: 3;
 }
@@ -191,8 +194,102 @@ body {
   display: none;
 }
 
-/**/
+/*    Spell css   */
+
+#spell {
+  width: 400px;
+  margin-top: 24px;
+  overflow: hidden;
+}
 
 #test-spell {
   height: 100%;
+  display: inline-grid;
+}
+
+#spell-name-div {
+  height: 24px;
+  border: 2px;
+  border-radius: 15px;
+  border-style: solid;
+  display: flex;
+  /*  border-color:   {color}   [REACT] */
+  /*  color:          {color}   [REACT] */
+}
+
+#spell-level {
+  width: 16px;
+  height: 16px;
+  /*  color:              {color}   [REACT] */
+  /*  background-color:   {color}   [REACT] */
+  position: relative;
+  margin: 2px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 900;
+  justify-content: center;
+  text-align: center;
+}
+
+#spell-name {
+  position: relative;
+  padding-left: 24px;
+}
+
+#spell-school {
+  position: relative;
+  font-weight: 200;
+  font-size: 12px;
+  margin-right: 8px;
+  text-align: right;
+  align-self: center;
+  margin-left: auto;
+}
+
+#spell-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 200;
+}
+
+#spell-description {
+  margin-top: 10px;
+  padding-top: 4px;
+
+  border-top: 2px solid;
+  /*  border-color:   {color}   [REACT] */
+}
+
+#spell-higher-level {
+  margin-top: 8px;
+  padding-top: 8px;
+  font-style: italic;
+  font-weight: 200;
+
+  border-top: 1px solid;
+  /*  border-color:   {color}   [REACT] */
+}
+
+/*  Custom Scrollbar   */
+/* width */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #181818;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #222222;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3b3b3b;
 }
