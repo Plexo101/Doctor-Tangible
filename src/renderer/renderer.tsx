@@ -21,7 +21,7 @@ import defaultCharacter from '../../public/defaultCharacter.json'
 import * as fs from 'fs'
 import '../react/json-interfaces'
 
-const characterFileExtension = ".data"
+const characterFileExtension = ".extensiontowapa"
 
 const appPath = path.join(__dirname, '../')
 const dataPath = appPath + '/user/'
@@ -116,8 +116,8 @@ function handleCharacterButtons() {
 }
 
 function SaveCharacter() {
-  let charName = (document.getElementById("character-name") as HTMLInputElement)?.value
-  charName = stringifyCharacterName(charName)
+  let charNameReal = (document.getElementById("character-name") as HTMLInputElement)?.value
+  let charName = stringifyCharacterName(charNameReal)
   if (charName != null || undefined || "") {
 
     let createdNew = false
@@ -143,7 +143,7 @@ function SaveCharacter() {
     let characterDataRAW = JSON.parse(fs.readFileSync(dataPath + charName + characterFileExtension, 'utf8'))
     characterData = JSON.parse(JSON.stringify(characterDataRAW))
     //Name
-    characterData.name = charName
+    characterData.name = charNameReal
 
     //Write it in the new file
     fs.writeFileSync(dataPath + charName + characterFileExtension, JSON.stringify(characterData, null, 2))
