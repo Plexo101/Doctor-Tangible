@@ -1,0 +1,17 @@
+{
+  "name" : "default name",
+  "class" : "default class",
+  "subclass" : "default subclass",
+  "classLevel" : 1,
+  "multiclass" : [
+    {
+      "class" : "defaultMulticlass",
+      "level" : 0
+    }
+  ],
+  "otherStuff" : [
+    {
+      "stuff" : "stuff"
+    }
+  ]
+}
