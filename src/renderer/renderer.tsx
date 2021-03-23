@@ -21,6 +21,7 @@ import defaultCharacter from '../../public/defaultCharacter.json'
 import * as fs from 'fs'
 import '../react/json-interfaces'
 
+const characterFileExtension = ".data"
 
 const appPath = path.join(__dirname, '../')
 const dataPath = appPath + '/user/'
@@ -116,7 +117,7 @@ function handleCharacterButtons() {
 
 function SaveCharacter() {
   let charName = (document.getElementById("character-name") as HTMLInputElement)?.value
-  charName = charName?.trim()
+  charName = stringifyCharacterName(charName)
   if (charName != null || undefined || "") {
 
     let createdNew = false
@@ -126,7 +127,7 @@ function SaveCharacter() {
     try {
 
       //Character file exists
-      fs.accessSync(dataPath + charName + ".json", constants.F_OK)
+      fs.accessSync(dataPath + charName + characterFileExtension, constants.F_OK)
       console.log("file exists")
 
     } catch (err) {
@@ -134,21 +135,28 @@ function SaveCharacter() {
       createdNew = true
       //Character file doesnt exist, so we create one
       characterData = defaultCharacter
-      fs.writeFileSync(dataPath + charName + ".json", JSON.stringify(characterData, null, 2))
+      fs.writeFileSync(dataPath + charName + characterFileExtension, JSON.stringify(characterData, null, 2))
 
     }
 
     //Overwrite the file with the new data
-    let characterDataRAW = JSON.parse(fs.readFileSync(dataPath + charName + ".json", 'utf8'))
+    let characterDataRAW = JSON.parse(fs.readFileSync(dataPath + charName + characterFileExtension, 'utf8'))
     characterData = JSON.parse(JSON.stringify(characterDataRAW))
     //Name
     characterData.name = charName
 
     //Write it in the new file
-    fs.writeFileSync(dataPath + charName + ".json", JSON.stringify(characterData, null, 2))
+    fs.writeFileSync(dataPath + charName + characterFileExtension, JSON.stringify(characterData, null, 2))
 
   }
   else {
     console.error("Character name invalid");
+  }
+
+  function stringifyCharacterName(name: string) {
+    name = name.trim()
+    name = name.toLowerCase()
+    name = name.replaceAll(" ", "-")
+    return name
   }
 }
