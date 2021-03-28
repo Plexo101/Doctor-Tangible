@@ -103,7 +103,7 @@ export interface stuff {
   stuff: string
 }
 
-export interface Character {
+export type Character = {
   name: string,
   class: string,
   subclass: string,

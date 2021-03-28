@@ -1,3 +1,6 @@
+import React, { ReactPropTypes } from 'react'
+import { render } from 'react-dom'
+
 export function schoolStringify(school: string) {
   switch (school) {
     case 'A':
@@ -24,9 +27,13 @@ export function schoolStringify(school: string) {
     case 'N':
       return "Necromancy"
       break;
-  
+
     default:
       return "Owo"
       break;
   }
+}
+
+export function entryToReact() {
+
 }

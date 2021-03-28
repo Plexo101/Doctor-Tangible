@@ -21,7 +21,7 @@ import defaultCharacter from '../../public/defaultCharacter.json'
 import * as fs from 'fs'
 import '../react/json-interfaces'
 
-const characterFileExtension = ".extensiontowapa"
+const characterFileExtension = ".doctortangible"
 
 const appPath = path.join(__dirname, '../')
 const dataPath = appPath + '/user/'
@@ -41,7 +41,7 @@ ReactDOM.render(
 
 /* Load the Header HTML with React*/
 ReactDOM.render(
-  <CharacterEditor />,
+  <CharacterEditor character={defaultCharacter} />,
   document.getElementById('app'),
 );
 
@@ -106,8 +106,8 @@ function handleCharacterButtons() {
     SaveCharacter()
   })
 
-  document.getElementById('load-character')?.addEventListener("click", event => {
-
+  document.getElementById('load-character')?.addEventListener("change", event => {
+    LoadCharacter()
   })
 
   document.getElementById('delete-character')?.addEventListener("click", event => {
@@ -115,10 +115,25 @@ function handleCharacterButtons() {
   })
 }
 
+function LoadCharacter() {
+  var filePath = (document.getElementById("character-load") as HTMLInputElement)?.files![0].path
+  var fileRAW = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  var file = JSON.parse(JSON.stringify(fileRAW))
+
+  ReactDOM.render(
+    <CharacterEditor character={file} />,
+    document.getElementById('app'),
+  );
+
+  console.log(filePath)
+  console.log(JSON.parse(JSON.stringify(fileRAW)))
+  console.log("upload character")
+}
+
 function SaveCharacter() {
   let charNameReal = (document.getElementById("character-name") as HTMLInputElement)?.value
   let charName = stringifyCharacterName(charNameReal)
-  if (charName != null || undefined || "") {
+  if (charName != null && charName != undefined && charName != "" && charName != " ") {
 
     let createdNew = false
     var characterData: jsonInterfaces.Character
@@ -142,6 +157,13 @@ function SaveCharacter() {
     //Overwrite the file with the new data
     let characterDataRAW = JSON.parse(fs.readFileSync(dataPath + charName + characterFileExtension, 'utf8'))
     characterData = JSON.parse(JSON.stringify(characterDataRAW))
+
+    //Render the new data
+    ReactDOM.render(
+      <CharacterEditor character={characterData} />,
+      document.getElementById('app'),
+    );
+
     //Name
     characterData.name = charNameReal
 
@@ -157,6 +179,8 @@ function SaveCharacter() {
     name = name.trim()
     name = name.toLowerCase()
     name = name.replaceAll(" ", "-")
+    name = name.replaceAll(".", "")
+    name = name.replaceAll(",", "")
     return name
   }
 }

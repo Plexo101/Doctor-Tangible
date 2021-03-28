@@ -12,12 +12,19 @@
 
   <div id="main" class="main"> 
     <div id="placeholder">
-      <input type="text" id="character-name" value="Character" />
+      <fieldset id="character-name-field">
+        <legend id="character-name-label">Character Name</legend>
+        <input type="text" name="character-name" id="character-name" placeholder="Name">
+    </fieldset>
       <div class="button" id="save-character" draggable="false">
         Save Character
       </div>
       <div class="button" id="load-character" draggable="false">
-        Load Character
+        <label for="character-load" class="custom-character-load">
+          <i class="fa fa-cloud-upload"></i> Load Character
+        </label>
+        <!--Tendriamos que cambiar el "accept" si cambiamos de extension de personajes-->
+        <input id="character-load" type="file" accept=".doctortangible"/>
       </div>
       <div class="button" id="delete-character" draggable="false">
         Delete Character
